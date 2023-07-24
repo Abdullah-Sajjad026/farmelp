@@ -1,0 +1,162 @@
+:root {
+  --cream-color: #f9f4ee;
+  --muted-color: #7a7777;
+  --accent-color: #ff6b6b;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// modifying scrollbar and its thumb
+::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+  // giving a glassy transparent background
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+
+  // inset shadow
+  box-shadow: inset 0 0 0.5rem var(--cream-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--cream-color);
+  border-radius: 0.5rem;
+}
+
+html {
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  line-height: 1.5;
+}
+
+// some reusable utility classes
+.min-h-screen {
+  min-height: 100vh;
+}
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-muted {
+  color: var(--muted-color);
+}
+
+.btn {
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 0.9rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  z-index: 22;
+}
+
+.btn-outline {
+  position: relative;
+  border: 1px solid black;
+  color: black;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    background-color: black;
+
+    transform: scale(0);
+    transform-origin: center;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover {
+    color: white;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+
+    &::after {
+      transform: scale(1);
+    }
+  }
+}
+
+.section-title-box {
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    color: var(--muted-color);
+  }
+}
+
+// Homepage Styles
+section.hero {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+// Testimonials Section
+section.testimonials {
+  padding: 6rem 0;
+}
